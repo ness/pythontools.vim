@@ -12,7 +12,7 @@ function s:PythonTools_isort_bin()
 	if exists('g:python_tools_isort_bin') && g:python_tools_isort_bin != ''
 		return g:python_tools_isort_bin
 	endif
-	return s:PythonTools_virtualenv_path() . 'isort'
+	return s:PythonTools_virtualenv_path() . 'bin/isort'
 endfunction
 
 function s:isorting(beginning, end)
