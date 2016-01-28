@@ -1,3 +1,9 @@
+function FileExists(filename)
+	if !empty(glob("path/to/file"))
+		return 1
+	endif
+endfunction
+
 function s:PythonTools_virtualenv_path()
 	if !exists('g:python_tools_venv')
 		throw 'g:python_tools_venv is not set.'
@@ -12,7 +18,11 @@ function s:PythonTools_isort_bin()
 	if exists('g:python_tools_isort_bin') && g:python_tools_isort_bin != ''
 		return g:python_tools_isort_bin
 	endif
-	return s:PythonTools_virtualenv_path() . 'bin/isort'
+	let virutalenv_isort_part = s:PythonTools_virtualenv_path() . 'bin/isort'
+	if FileExists(virutalenv_isort_part)
+		return s:PythonTools_virtualenv_path() . 'bin/isort'
+	endif
+	return 'isort'
 endfunction
 
 function s:isorting(beginning, end)
