@@ -1,5 +1,5 @@
 function FileExists(filename)
-	if !empty(glob("path/to/file"))
+	if !empty(glob(a:filename))
 		return 1
 	endif
 endfunction
