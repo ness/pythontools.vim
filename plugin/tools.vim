@@ -18,9 +18,9 @@ function s:PythonTools_isort_bin()
 	if exists('g:python_tools_isort_bin') && g:python_tools_isort_bin != ''
 		return g:python_tools_isort_bin
 	endif
-	let virutalenv_isort_part = s:PythonTools_virtualenv_path() . 'bin/isort'
-	if FileExists(virutalenv_isort_part)
-		return s:PythonTools_virtualenv_path() . 'bin/isort'
+	let virtualenv_isort_part = s:PythonTools_virtualenv_path() . 'bin/isort'
+	if FileExists(virtualenv_isort_part)
+		return virtualenv_isort_part
 	endif
 	return 'isort'
 endfunction
